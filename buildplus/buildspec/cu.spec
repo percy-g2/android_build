@@ -1,0 +1,64 @@
+
+[Modules]
+
+QRDExt_NativeDemoPlugin_gp = cu
+QRDExt_JavaDemoPlugin_gp = cu
+QRDExt_BootRes_gp = cu
+QRDExt_BrowserQuick_gp = no
+QRDExt_BrowserRes_gp = no
+QRDExt_BrowserUA_gp = no
+QRDExt_WoRead_gp = no
+QRDExt_ConfPrompt = yes
+QRDExt_LanguageGlobalization = yes
+QRDExt_BootAnimation_gp = cu
+QRDExt_LunarService = yes
+QRDExt_BootLogo_gp = cu
+QRDExt_LauncherRes_gp = cu
+QRDExt_Extra_Wallpaper_gp = cu
+QRDExt_CSVT = yes
+QRDExt_CDROM_RES_gp = cu
+QRDExt_PreloadApp_gp = cu
+QRDExt_FilterAppForMonkey_gp = cu
+QRDExt_ResCustomization_gp = cu
+QRDExt_DebugCtrl = no
+
+[Java Feature]
+
+FEATURE_BROWSER_BACK_MENU = yes
+FEATURE_BROWSER_HOMEPAGE_MENU = yes
+FEATURE_BROWSER_UA_SELECTION = no
+FEATURE_BROWSER_HISTORY_MENU = yes
+FEATURE_PROFILE_RINGTONE_SELECTION = yes
+FEATURE_CONTACTS_SIMCONTACTS = yes
+FEATURE_GLOBALIZATION_BIDI = yes
+FEATURE_DOWNLOADPROVIDER_DESTINATION_FOLDER_BY_MIME = yes
+FEATURE_DOWNLOADPROVIDER_SUPPORT_BREAKPOINT_CONTINUINGLY = yes
+FEATURE_DOWNLOADPROVIDER_MANUAL_PAUSE = yes
+FEATURE_ANNUCIATOR_NEW_STATUSBAR_STYLE = yes
+FEATURE_CSVT = yes
+FEATURE_MESSAGE_QUICK_RESPONSE = no
+FEATURE_MMS_FILTER_RECIPIENTS_CHARACTER = yes
+FEATURE_MMS_MESSAGE_COUNT_LIMIT = yes
+FEATURE_MMS_NEW_MESSAGE_NOTIFI_BY_UNREAD = no
+FEATURE_HIDE_CHINAUNION_SUPL = yes
+FEATURE_STK_USE_CU_SPECIFIC_ICON_STRING = yes
+FEATURE_GLOBALIZATION_FAST_POWER_OFF = no
+FEATURE_GSM_TUNE_AWAY = yes
+FEATURE_BAIDU_XCLOUD = yes
+FEATURE_SHOW_NOTI_IN_THREAD = yes;
+[Native Feature]
+
+ENABLE_QRDEXT_VIDEO_720P = yes
+ENABLE_QRDEXT_AUTO_REG_SMS = yes
+ENABLE_QRDEXT_GLOBAL_MODE = no
+ENABLE_QRDEXT_CSVT = yes
+
+[Java Default Value]
+BROWSER_DEFAULT_TEXT_ENCODING = "GBK"; // the default text encoding
+BROWSER_USER_AGENT = "Android/4.0.4-CU-7x27a-w.12.11"
+STATUSBAR_STYLE = 1; // China Unicom status bar style
+
+
+[Native Default Value]
+QRDEXT_FLASH_SIZE = 2 * 1024 * 1024 * 1024L
+QRDEXT_REG_SMS_OPERATOR = "CU"; // operator value for auto reg sms
