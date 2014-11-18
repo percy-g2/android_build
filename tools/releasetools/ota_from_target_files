@@ -727,7 +727,7 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip, fota):
     # the boot image (though not in the ramdisk) so they can be used
     # as fodder for constructing the recovery image.
     MakeRecoveryPatch(output_zip, target_recovery, target_boot)
-   script.DeleteFiles(["/system/recovery-from-boot.p",
+    script.DeleteFiles(["/system/recovery-from-boot.p",
                         "/system/etc/install-recovery.sh"])
     print "recovery image changed; including as patch from boot."
   else:
