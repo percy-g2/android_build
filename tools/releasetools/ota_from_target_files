@@ -437,7 +437,7 @@ def WriteFullOTAPackage(input_zip, output_zip, fota):
 
   script.FormatPartition("/system")
   script.Mount("/system")
-  script.UnpackPackageDir("recovery", "/system")
+  #script.UnpackPackageDir("recovery", "/system")
   script.UnpackPackageDir("system", "/system")
 
   (symlinks, retouch_files) = CopySystemFiles(input_zip, output_zip)
@@ -460,9 +460,9 @@ def WriteFullOTAPackage(input_zip, output_zip, fota):
 
   boot_img = common.GetBootableImage("boot.img", "boot.img",
                                      OPTIONS.input_tmp, "BOOT",  OPTIONS.extras["pagesize"])
-  recovery_img = common.GetBootableImage("recovery.img", "recovery.img",
-                                         OPTIONS.input_tmp, "RECOVERY",  OPTIONS.extras["pagesize"])
-  MakeRecoveryPatch(output_zip, recovery_img, boot_img)
+  #recovery_img = common.GetBootableImage("recovery.img", "recovery.img",
+  #                                       OPTIONS.input_tmp, "RECOVERY",  OPTIONS.extras["pagesize"])
+  #MakeRecoveryPatch(output_zip, recovery_img, boot_img)
 
   Item.GetMetadata(input_zip)
   Item.Get("system").SetPermissions(script)
@@ -617,11 +617,11 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip, fota):
       "/tmp/boot.img", "boot.img", OPTIONS.target_tmp, "BOOT",  OPTIONS.extras["pagesize"])
   updating_boot = (source_boot.data != target_boot.data)
 
-  source_recovery = common.GetBootableImage(
-      "/tmp/recovery.img", "recovery.img", OPTIONS.source_tmp, "RECOVERY",  OPTIONS.extras["pagesize"])
-  target_recovery = common.GetBootableImage(
-      "/tmp/recovery.img", "recovery.img", OPTIONS.target_tmp, "RECOVERY",  OPTIONS.extras["pagesize"])
-  updating_recovery = (source_recovery.data != target_recovery.data)
+#  source_recovery = common.GetBootableImage(
+#      "/tmp/recovery.img", "recovery.img", OPTIONS.source_tmp, "RECOVERY",  OPTIONS.extras["pagesize"])
+#  target_recovery = common.GetBootableImage(
+#      "/tmp/recovery.img", "recovery.img", OPTIONS.target_tmp, "RECOVERY",  OPTIONS.extras["pagesize"])
+#  updating_recovery = (source_recovery.data != target_recovery.data)
 
   # Here's how we divide up the progress bar:
   #  0.1 for verifying the start state (PatchCheck calls)
@@ -727,7 +727,7 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip, fota):
     # the boot image (though not in the ramdisk) so they can be used
     # as fodder for constructing the recovery image.
     MakeRecoveryPatch(output_zip, target_recovery, target_boot)
-    script.DeleteFiles(["/system/recovery-from-boot.p",
+   script.DeleteFiles(["/system/recovery-from-boot.p",
                         "/system/etc/install-recovery.sh"])
     print "recovery image changed; including as patch from boot."
   else:
@@ -760,9 +760,9 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip, fota):
     script.Print("Unpacking new files...")
     script.UnpackPackageDir("system", "/system")
 
-  if updating_recovery:
-    script.Print("Unpacking new recovery...")
-    script.UnpackPackageDir("recovery", "/system")
+#  if updating_recovery:
+#    script.Print("Unpacking new recovery...")
+#    script.UnpackPackageDir("recovery", "/system")
 
   script.Print("Symlinks and permissions...")
 
